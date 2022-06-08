@@ -16,8 +16,6 @@
 
     
 
-    
-
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -72,7 +70,26 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
-
+	<script>
+// Self-executing function
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
     
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
@@ -83,7 +100,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Mohamed ibrahim</a>
+      <a class="navbar-brand" href="#">Mohamed Ibrahim</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -148,7 +165,7 @@
 	<hr>
 	<div class="mt-4">
     <h1 class="border-bottom pb-3 mb-4">Registration Form</h1>
-    <form class="needs-validation" action="/examples/actions/confirmation.php" method="post" novalidate>
+    <form class="needs-validation" action="" method="post" novalidate>
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label" for="firstName">First Name:</label>
             <div class="col-sm-9">
@@ -280,6 +297,16 @@
             </div>
         </div>
     </form>
+</div>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
   </div>
 </main>
